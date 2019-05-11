@@ -1,0 +1,19 @@
+{
+  "name": "src",
+  "version": "0.1.0",
+  "description": "Project that implements an Auditor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.2"
+  },
+  "dependencies": {
+    "uuid": "^3.3.2"
+  }
+}

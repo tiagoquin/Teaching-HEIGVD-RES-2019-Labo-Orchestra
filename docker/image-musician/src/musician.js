@@ -5,17 +5,12 @@
 
 const uuid = require('uuid');
 const dgram = require('dgram');
+
+const INSTRUMENTS = require('./protocol/instruments');
 const protocol = require('./protocol/orchestra-protocol')
 
+// We create the udp socket
 const s = dgram.createSocket('udp4');
-
-const INSTRUMENTS = new Map([
-  ['piano', 'ti-ta-ti'],
-  ['trumpet', 'pouet'],
-  ['flute', 'trulu'],
-  ['violin', 'gzi-gzi'],
-  ['drum', 'boum-boum'],
-]);
 
 
 /**
@@ -34,11 +29,11 @@ class Musician {
       throw Error(`${instrument} doesn't exist`);
     }
 
-    this.instrument = instrument;
+    /** @private */ this.instrument = instrument;
 
-    this.sound = INSTRUMENTS.get(this.instrument);
+    /** @private */ this.sound = INSTRUMENTS.get(this.instrument);
 
-    this.id = uuid();
+    /** @private */ this.uuid = uuid();
   }
 
   /**
