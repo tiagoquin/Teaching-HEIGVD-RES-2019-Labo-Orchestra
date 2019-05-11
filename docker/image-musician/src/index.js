@@ -12,5 +12,5 @@ const instrument = process.argv[2];
 
 const musician = new Musician(instrument);
 
-// Here the .bind() let us call this inside the play function
+// Here the .bind() let us call `this` inside the play function
 setInterval(musician.play.bind(musician), 1000);

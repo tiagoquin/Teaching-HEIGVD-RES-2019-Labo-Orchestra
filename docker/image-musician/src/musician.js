@@ -1,5 +1,5 @@
 /**
- * @fileOverview
+ * @fileOverview Implementation of the Musician class
  * @author  Tiago Póvoa
  */
 
@@ -19,8 +19,7 @@ const INSTRUMENTS = new Map([
 
 
 /**
- * class Musician
- * @class
+ * @class class Musician
  * @property {string} instrument -
  * @property {string} sound -
  * @property {uuid} id -
@@ -42,6 +41,9 @@ class Musician {
     this.id = uuid();
   }
 
+  /**
+   * This method send an udp datagram with the musician object (Jsonify)
+   */
   play() {
     const payload = JSON.stringify(this);
     const message = Buffer.from(payload); // new Buffer is deprecated
