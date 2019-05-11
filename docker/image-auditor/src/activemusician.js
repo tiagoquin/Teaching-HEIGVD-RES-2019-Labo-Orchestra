@@ -16,11 +16,12 @@ class ActiveMusician {
    * @constructor
    * @param {string} instrument - instrument the instrument we wish to play
    */
-  constructor(instrument, date) {
+  constructor(uuid, instrument, date) {
     if (!INSTRUMENTS.has(instrument)) {
       throw Error(`${instrument} doesn't exist`);
     }
 
+    this.uuid = uuid;
     this.instrument = instrument;
     this.activeSince = date;
   }

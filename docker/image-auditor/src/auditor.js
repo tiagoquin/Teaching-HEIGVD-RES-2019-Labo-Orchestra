@@ -25,7 +25,15 @@ class Auditor {
       }
     });
   }
+
+  musicianList() {
+    const array = []
+    this.musicians.forEach((value) => {
+      array.push(value);
+    });
+
+    return array;
+  }
 }
 
 module.exports = Auditor;
-

@@ -40,7 +40,8 @@ UDP_SOCKET.on('message', (msg, rinfo) => {
   if (auditor.musicians.has(object.uuid)) {
     auditor.musicians.get(object.uuid).activeSince = new Date();
   } else {
-    auditor.addMusician(object.uuid, new ActiveMusician(object.instrument, new Date()));
+    auditor.addMusician(object.uuid,
+      new ActiveMusician(object.uuid, object.instrument, new Date()));
   }
 });
 
@@ -48,4 +49,13 @@ UDP_SOCKET.on('message', (msg, rinfo) => {
 
 TCP_SERVER.listen(protocol.PROTOCOL_PORT_TCP, () => {
   console.log(`TCP Server starting on port ${protocol.PROTOCOL_PORT_TCP}`);
+});
+
+TCP_SERVER.on('connection', (socket) => {
+  socket.write(JSON.stringify(auditor.musicianList()));
+  socket.write('\r\n');
+
+  socket.end();
+
+  console.log(`Socket end on ${socket.remoteAddress} with port: ${socket.remotePort}`);
 });
