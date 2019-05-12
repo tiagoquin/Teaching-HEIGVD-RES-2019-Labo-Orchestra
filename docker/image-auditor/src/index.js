@@ -48,7 +48,7 @@ UDP_SOCKET.on('message', (msg, rinfo) => {
 // -----------
 
 TCP_SERVER.listen(protocol.PROTOCOL_PORT_TCP, () => {
-  console.log(`TCP Server starting on port ${protocol.PROTOCOL_PORT_TCP}`);
+  console.log(`TCP Server starting on port ${protocol.PROTOCOL_PORT_TCP}`, TCP_SERVER.address());
 });
 
 TCP_SERVER.on('connection', (socket) => {
