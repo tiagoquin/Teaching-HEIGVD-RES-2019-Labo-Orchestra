@@ -113,7 +113,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | What **payload** should we put in the UDP datagrams? |
 | | ```{"instrument":"flute","sound":"trulu","uuid":"fbaeab12-8c71-4ae6-b5a8-1ca18a81eb8d"}```<br /> here is an example of payload |
 |Question | What **data structures** do we need in the UDP sender and receiver? When will we update these data structures? When will we query these data structures? |
-| | Musician: a const Map with instruments as keys and sounds as values<br />Auditor: a map with uuid as key and an object with the instrument, and the last seen date. |
+| | Musician: a const Map with instruments as keys and sounds as values<br />It helps use to create the musicians. We will use it to build our payload that we're going to send<br />Auditor: a map with uuid as key and an object with the instrument, and the last seen date.<br />It helps us keeping track of active musicians. This one will be used to send the list of active musicians. |
 
 
 ## Task 2: implement a "musician" Node.js application
